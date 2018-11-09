@@ -1,0 +1,10 @@
+#include<opencv2/opencv.hpp>
+using namespace cv;
+
+void main()
+{
+	Mat src_img = imread("D://OpenCV_coding/test_img/social_coding.jpg");
+	imshow("import a image",src_img);
+
+	waitKey(0);
+}
