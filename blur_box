@@ -1,0 +1,45 @@
+#include"opencv2/core/core.hpp"
+#include"opencv2/highgui/highgui.hpp"
+#include"opencv2/imgproc/imgproc.hpp"
+
+using namespace cv;
+
+////方框滤波调用代码
+//int main()
+//{
+//	Mat src_img = imread("D://OpenCV_coding/test_img/colorful_467_318.jpg");
+//	namedWindow("the origin image");
+//	namedWindow("the box_filtered image");
+//
+//	imshow("the origin image",src_img);
+//
+//	Mat dst_img;
+//	boxFilter(src_img,dst_img,-1,Size(5,10));
+//	imshow("the box_filtered image",dst_img);
+//
+//	waitKey(0);
+//}
+
+int main()
+{
+	Mat src_img = imread("D://OpenCV_coding/test_img/colorful_467_318.jpg");
+	
+	namedWindow("the origin image");
+	namedWindow("the linear_filtered image");
+	namedWindow("the box_filtered image");
+	namedWindow("the guassian_filtered image");
+
+	imshow("the origin image",src_img);
+
+	Mat dst_img;
+	Mat box_filtered_img;
+	Mat guassian_filtered_img;
+	blur(src_img,dst_img,Size(10,10));
+	boxFilter(src_img,box_filtered_img,-1,Size(10,10));
+	GaussianBlur(src_img,guassian_filtered_img,Size(9,9),0,0);
+	imshow("the linear_filtered image",dst_img);
+	imshow("the box_filtered image",box_filtered_img);
+	imshow("the guassian_filtered image",guassian_filtered_img);
+
+	waitKey(0);
+}
